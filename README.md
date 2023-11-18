@@ -1,12 +1,29 @@
 # rockpaperscissorsrepository
 Rock paper scissors repository from AI CORE
-# Installation
+
+# Table of contents 
+## How to install
+## Project Description
+## Instructions of use
+## File structure 
+## License
 
 
-# Usage
+# How to Install
+Clone repository as above and run in Linux 
+sudo git clone ""
 
+# Project Description
 
-# Contributing 
+This is a project I completed in my AI Core course where I was able to tie in: 
+1. Advanced Python coding
+2. Visual machine learning algorithims
+3. Command line
+
+# Instructions of use
+Use to pl
+
+# File structure 
 
 
 # License
