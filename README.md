@@ -1,6 +1,5 @@
 Rock Paper Scissors repository from AI CORE
 
-
 # Table of Contents
 1. How to Install
 2. Project Description
@@ -19,16 +18,18 @@ This is a project I completed in my AI Core course where I was able to tie in:
 1. Advanced Python coding
 2. Visual machine learning algorithms
 3. Command line
-4. Instructions of Use
-5. Use this project to play the Rock Paper Scissors game.
-6. Updating GITHUB Repository
+4. Error handling
+
+# Instructions of Use
+Use this project to play the Rock Paper Scissors game.
 
 File Structure
 
-Copy code
 rockpaperscissorsrepository/
 ├── README.md
 ├── rockpaperscissors.py
+├── camera_rps.py
+├── keras_model.h5
 └── ...
 License
 Copyright (c) 2023 Waqar M Shah
@@ -46,3 +47,9 @@ Added a while loop to allow multiple rounds of play.
 Implemented score tracking and display after each round.
 Handled invalid user input more gracefully.
 Updated the README file with a table of contents and additional information.
+
+Update 2:
+
+Created a prediction model using Keras (keras_model.h5) for hand gesture recognition.
+Integrated the prediction model with the game code to allow the camera to capture hand movements and predict the user's choice.
+Added error handling to handle cases where the camera fails to open or capture frames, ensuring a smoother user experience.
