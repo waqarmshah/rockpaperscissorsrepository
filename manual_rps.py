@@ -10,9 +10,13 @@ def play():
     computer_score = 0
     user_score = 0
 
-    while True:
+    while computer_score < 3 and user_score < 3:
         computer_choice = get_computer_choice()
         user_choice = countdown()
+
+        if user_choice is None:
+            print("Failed to capture a valid frame. Please try again.")
+            continue
 
         print("Computer chose:", computer_choice)
         print("User chose:", user_choice)
@@ -29,9 +33,14 @@ def play():
 
         print("Score: Computer", computer_score, "- User", user_score)
 
-        play_again = input("Do you want to play again? (y/n): ")
-        if play_again.lower() != 'y':
-            break
+    if computer_score == 3:
+        print("Computer wins the game!")
+    else:
+        print("You win the game!")
+
+    play_again = input("Do you want to play again? (y/n): ")
+    if play_again.lower() == 'y':
+        play()
 
 def get_computer_choice():
     choices = ['rock', 'paper', 'scissors']
