@@ -1,35 +1,57 @@
-#%%
+import random #for random choices
 
-import random
-
+#defining the function play
 def play():
-    def get_computer_choice():
-        choices = ['rock', 'paper', 'scissors']
-        computer_choice = random.choice(choices)
-        return computer_choice
+    computer_score = 0
+    user_score = 0
+#while loop to keep the game running
+    while True:
+        computer_choice = get_computer_choice()
+        user_choice = get_user_choice()
 
-    def get_user_choice():
-        user_choice = input("Enter your choice (rock/paper/scissors): ")
-        if user_choice != 'rock' and user_choice != 'paper' and user_choice != 'scissors':
-            print("Invalid choice. Enter again.")
-            get_user_choice()
-        return user_choice
+        print("Computer chose:", computer_choice)
+        print("User chose:", user_choice)
 
-    def get_winner(computer_choice, user_choice):
-        if computer_choice == user_choice:
-            print("It is a tie!")
-        elif (computer_choice == 'rock' and user_choice == 'scissors') or \
-             (computer_choice == 'paper' and user_choice == 'rock') or \
-             (computer_choice == 'scissors' and user_choice == 'paper'):
-            print("You lost")
-        else:
+        winner = get_winner(computer_choice, user_choice)
+        if winner == "computer":
+            computer_score += 1
+            print("You lost!")
+        elif winner == "user":
+            user_score += 1
             print("You won!")
-    computer_choice = get_computer_choice()
-    user_choice = get_user_choice()
+        else:
+            print("It is a tie!")
 
-    print("Computer chose:", computer_choice)
-    print("User chose:", user_choice)
+        print("Score: Computer", computer_score, "- User", user_score)
+#asking the user if they want to play again
+        play_again = input("Do you want to play again? (y/n): ")
+        if play_again.lower() != 'y':
+            break
 
-    get_winner(computer_choice, user_choice)
-play()
-# %%
+def get_computer_choice():
+    choices = ['rock', 'paper', 'scissors']
+    return random.choice(choices)
+
+def get_user_choice():
+    while True:
+        user_choice = input("Enter your choice (rock/paper/scissors): ")
+        if user_choice in ['rock', 'paper', 'scissors']:
+            return user_choice
+        print("Invalid choice. Enter again.")
+
+def get_winner(computer_choice, user_choice):
+    winning_combinations = {
+        'rock': 'scissors',
+        'paper': 'rock',
+        'scissors': 'paper'
+    }
+
+    if computer_choice == user_choice:
+        return "tie"
+    elif winning_combinations[computer_choice] == user_choice:
+        return "computer"
+    else:
+        return "user"
+
+if __name__ == '__main__':
+    play()
